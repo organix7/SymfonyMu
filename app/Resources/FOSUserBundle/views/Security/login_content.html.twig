@@ -1,0 +1,42 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<div class="container" id="container-signin">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5 text-white" style="background-color:#333333">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign In</h5>
+                    <form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin">
+                        {% if csrf_token %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        {% endif %}
+                        <div class="form-label-group">
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" placeholder="username" class="form-control" autofocus>
+                            <label for="username">{{ 'security.login.username'|trans }}</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="password" name="_password" autocomplete="current-password" class="form-control" placeholder="Password" required>
+                            <label for="password">{{ 'security.login.password'|trans }}</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" name="_remember_me" value="on">
+                            <label class="custom-control-label" for="customCheck1">{{ 'security.login.remember_me'|trans }}</label>
+                        </div>
+                        <button id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Sign in</button>
+                        <hr class="my-4">
+                    </form>
+
+                    <div class="text-center">
+                        <a class="btn btn-control btn-primary btn-center text-uppercase" href="{{ path('fos_user_registration_register') }}">sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

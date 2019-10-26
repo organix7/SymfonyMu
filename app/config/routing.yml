@@ -1,0 +1,5 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+miniusine:
+    resource: "@MuBundle/Resources/config/routing.yml"
+

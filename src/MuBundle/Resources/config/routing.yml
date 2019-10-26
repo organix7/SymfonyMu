@@ -1,0 +1,3 @@
+mu_homepage:
+  path:     /
+  defaults: { _controller: MuBundle:MuView:index }
