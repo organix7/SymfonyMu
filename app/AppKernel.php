@@ -3,6 +3,7 @@
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle;
 
 class AppKernel extends Kernel
 {
@@ -18,6 +19,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new MuBundle\MuBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new EasyAdminBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
