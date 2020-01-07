@@ -1,3 +1,7 @@
 mu_homepage:
   path:     /
   defaults: { _controller: MuBundle:MuView:index }
+
+esync_api:
+  path:     /api
+  defaults: { _controller: MuBundle:MuView:api}

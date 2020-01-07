@@ -20,8 +20,31 @@ class Utilisateur extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\Column(type="array",nullable=true)
+     */
+
+    protected $zoneAllowed;
+
     public function __construct()
     {
         parent::__construct();
+    }
+
+    /**
+     * @return array
+     */
+
+    public function getZoneAllowed()
+    {
+        return $this->zoneAllowed;
+    }
+
+    /**
+     * @param array $zoneAllowed
+     */
+    public function setZoneAllowed($zoneAllowed)
+    {
+        $this->zoneAllowed = $zoneAllowed;
     }
 }

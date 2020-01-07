@@ -1,3 +1,35 @@
 {% extends "@FOSUser/layout.html.twig" %}
+    {% block fos_user_content %}
+        <br>
+        <div class="text-center">
+            {% for zone in user.zoneAllowed %}
+                {% if zone == "Z1" %}
+                    <button id="btn-Z1" type="button" class="btn btn-outline-primary big">ZONE 1</button>
+                {% elseif zone == "Z2" %}
+                    <button id="btn-Z2" type="button" class="btn btn-outline-warning big">ZONE 2</button>
+                {% elseif zone=="Z3" %}
+                    <button id="btn-Z3" type="button" class="btn btn-outline-danger big">ZONE 3</button>
+                {% endif %}
+            {% endfor %}
+        </div>
 
+        <div id="tableau">
+            <br>
+            <table id="dataTable" class="table-dark table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th class="th-sm">ID</th>
+                    <th class="th-sm">Station ID</th>
+                    <th class="th-sm">EWON Tag ID</th>
+                    <th class="th-sm">Name</th>
+                    <th class="th-sm">Val</th>
+                    <th class="th-sm">Description</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
+        <script src="{{ asset('api.js') }}"></script>
+
+    {% endblock fos_user_content %}
 {% trans_default_domain 'FOSUserBundle' %}
